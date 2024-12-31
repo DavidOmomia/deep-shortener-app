@@ -1,0 +1,20 @@
+services:
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        VITE_APP_BASE_URL: ${VITE_APP_BASE_URL}
+        VITE_API_BASE_URL: ${VITE_API_BASE_URL}
+    container_name: deep-shortener-frontend
+    ports:
+      - "3000:3000"
+    env_file:
+      - .env
+    environment:
+      - VITE_APP_BASE_URL=${VITE_APP_BASE_URL}
+      - VITE_API_BASE_URL=${VITE_API_BASE_URL}
+    volumes:
+      - ./src:/app/src
+      - ./public:/app/public
+    command: ["npx", "serve", "-s", "dist", "-l", "3000"]
