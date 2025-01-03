@@ -76,9 +76,6 @@ The root component initializes:
 * `/url-not-found` - Page for invalid slugs.
 * `/` - Protected route for the home page.
 
-# Thank you Deep Origin team for the task
-
-
 
 
 
